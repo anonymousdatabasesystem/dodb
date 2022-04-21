@@ -1,24 +1,24 @@
 
 
-
-# cp ../benchmark/data/rankings/10000/rankings_10000.csv .
-# cp ../benchmark/data/rankings/100000/rankings_100000.csv .
-# cp ../benchmark/data/rankings/1000000/rankings_1000000.csv .
-# cp ../benchmark/data/rankings/10000000/rankings_10000000.csv .
-# cp ../benchmark/data/uservisits/10000/uservisits_10000.csv .
-# cp ../benchmark/data/uservisits/100000/uservisits_100000.csv .
-# cp ../benchmark/data/uservisits/1000000/uservisits_1000000.csv .
-# cp ../benchmark/data/uservisits/10000000/uservisits_10000000.csv .
-# echo "benchmark data is ready"
-
-
+#below code is to move dataset into the executable directory
+cp ../benchmark/data/rankings/10000/rankings_10000.csv .
+cp ../benchmark/data/rankings/100000/rankings_100000.csv .
+cp ../benchmark/data/rankings/1000000/rankings_1000000.csv .
+cp ../benchmark/data/rankings/10000000/rankings_10000000.csv .
+cp ../benchmark/data/uservisits/10000/uservisits_10000.csv .
+cp ../benchmark/data/uservisits/100000/uservisits_100000.csv .
+cp ../benchmark/data/uservisits/1000000/uservisits_1000000.csv .
+cp ../benchmark/data/uservisits/10000000/uservisits_10000000.csv .
+echo "benchmark data is ready"
 
 
 
-# make clean
-# # REMINDER : you need to manually set -DSGX_HW=ON to turn on the hardware mode
-# cmake -DSGX_HW=ON -DSGX_MODE=PreRelease  -DPARALLEL=OFF ..
-# make -j8 
+
+
+make clean
+# REMINDER : you need to manually set -DSGX_HW=ON to turn on the hardware mode
+cmake -DSGX_HW=ON -DSGX_MODE=PreRelease  -DPARALLEL=OFF ..
+make -j8 
 for i in $(seq 3);
 do
 ./App rankings_100000.csv uservisits_100000.csv 100000 300000 2| grep "-">> ../benchmark/usenix_singlethread_log.txt;

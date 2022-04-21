@@ -34,9 +34,9 @@ cd benchmark
 python3 datasetGenerator.py #generate dataset of different sizes via sampling from original BDB dataset.
 cd ..
 mkdir build
-cp auto-test.sh build/
+cp auto-test.sh build/ #move the test script to the executable directory
 cd build
-sh auto-test.sh
+sh auto-test.sh #please read the script for benchmarking
 cd ../benchmark
 python3 draw.py
 ```
