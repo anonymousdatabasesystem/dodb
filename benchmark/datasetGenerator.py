@@ -66,8 +66,7 @@ def randomRevenue():
 def ramdomRank():
     return int(rankings_sample.loc[random.randint(0, len(rankings_sample) - 1)][1])
 
-# size_list = [10000, 100000, 1000000, 10000000]
-size_list = [5000000]
+size_list = [10000, 100000, 1000000, 10000000]
 
 # for size in size_list:
 #     pageURL = [randomURLGenerator() for i in range(size)]
